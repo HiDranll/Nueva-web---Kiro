@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Avatar 3D con ropa</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Avatar 3D</h1>
+    <p class="hint">Gira el avatar con el ratón. Ponle ropa. Pide opinión al chat.</p>
+  </header>
+
+  <main>
+    <section id="stage-wrap">
+      <div id="stage" aria-label="Escena 3D del avatar"></div>
+    </section>
+
+    <aside id="panel">
+      <h2>Ropa</h2>
+      <div class="group">
+        <span class="label">Sombrero</span>
+        <div class="row">
+          <button class="wear" data-slot="hat" data-item="none">Nada</button>
+          <button class="wear" data-slot="hat" data-item="cap">Gorra</button>
+          <button class="wear" data-slot="hat" data-item="tophat">Copa</button>
+        </div>
+      </div>
+
+      <div class="group">
+        <span class="label">Camiseta</span>
+        <div class="row">
+          <button class="swatch" data-slot="shirt" data-color="#e23b3b" style="background:#e23b3b"></button>
+          <button class="swatch" data-slot="shirt" data-color="#2f7fe0" style="background:#2f7fe0"></button>
+          <button class="swatch" data-slot="shirt" data-color="#27a844" style="background:#27a844"></button>
+          <button class="swatch" data-slot="shirt" data-color="#f0c000" style="background:#f0c000"></button>
+          <button class="swatch" data-slot="shirt" data-color="#8a4fff" style="background:#8a4fff"></button>
+        </div>
+      </div>
+
+      <div class="group">
+        <span class="label">Capa</span>
+        <div class="row">
+          <button class="wear" data-slot="cape" data-item="off">Sin capa</button>
+          <button class="wear" data-slot="cape" data-item="on">Con capa</button>
+        </div>
+      </div>
+
+      <div class="group">
+        <h2>Chat</h2>
+        <p class="status" id="ollama-status">Comprobando Ollama…</p>
+        <div id="chatlog" aria-live="polite"></div>
+        <form id="chatform">
+          <input id="chatinput" type="text" placeholder="Pregunta sobre el look…" autocomplete="off">
+          <button type="submit" id="send">Enviar</button>
+        </form>
+      </div>
+    </aside>
+  </main>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="module" src="script.js"></script>
+</body>
+</html>

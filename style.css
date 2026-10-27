@@ -1,0 +1,110 @@
+* { box-sizing: border-box; }
+
+:root {
+  --bg: #0f1221;
+  --panel: #191d33;
+  --ink: #eef0ff;
+  --muted: #9aa0c0;
+  --accent: #8a4fff;
+  --line: #2a2f4a;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, Segoe UI, Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--line);
+}
+header h1 { margin: 0; font-size: 20px; }
+.hint { margin: 4px 0 0; color: var(--muted); font-size: 13px; }
+
+main {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+#stage-wrap {
+  flex: 1 1 420px;
+  min-height: 420px;
+  background: #0b0e1a;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+#stage { width: 100%; height: 100%; display: block; }
+#stage canvas { display: block; }
+
+#panel {
+  flex: 0 1 320px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px;
+}
+#panel h2 { font-size: 15px; margin: 0 0 8px; }
+
+.group { margin-bottom: 18px; }
+.label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; }
+
+button {
+  cursor: pointer;
+  font: inherit;
+  color: var(--ink);
+  background: #232844;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+button:hover { border-color: var(--accent); }
+button.active { background: var(--accent); border-color: var(--accent); }
+
+.swatch {
+  width: 34px; height: 34px;
+  padding: 0;
+  border-radius: 50%;
+  border: 2px solid var(--line);
+}
+.swatch.active { border-color: var(--ink); outline: 2px solid var(--accent); }
+
+.status { font-size: 12px; margin: 0 0 8px; }
+.status.ok { color: #4fd07a; }
+.status.bad { color: #ff7a7a; }
+
+#chatlog {
+  background: #0b0e1a;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  height: 180px;
+  overflow-y: auto;
+  padding: 8px;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+.msg { margin: 0 0 8px; line-height: 1.4; }
+.msg .who { font-weight: 600; color: var(--accent); }
+.msg.bot .who { color: #4fd07a; }
+
+#chatform { display: flex; gap: 8px; }
+#chatinput {
+  flex: 1;
+  background: #0b0e1a;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+#chatinput:focus { outline: 1px solid var(--accent); }
+
+@media (max-width: 760px) {
+  main { flex-direction: column; }
+  #stage-wrap { min-height: 320px; }
+}
